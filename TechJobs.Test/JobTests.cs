@@ -32,6 +32,25 @@ namespace TechJobs.Tests
         {
             Assert.IsFalse(job3.Equals(job4));
         }
+
+    [TestMethod]
+        public void TestToStringStartsAndEndsWithNewLine()
+        {
+            Assert.AreEqual(job4.ToString().Substring(0,1), "\n");
+            Assert.AreEqual(job4.ToString().Substring(job4.ToString().Length - 1), "\n");
+        }
+
+    [TestMethod]
+    public void TestToStringContainsCorrectLabelsAndData()
+        {
+            Assert.AreEqual(job4.ToString().Substring(1, job4.ToString().Length - 2), $"ID: {job4.Id}\nName: {job4.Name}\nEmployer: {job4.EmployerName}\nLocation: {job4.EmployerLocation}\nPosition Type: {job4.JobType}\nCore Competency: {job4.JobCoreCompetency}");
+        }
+
+    [TestMethod]
+    public void TestToStringHandlesEmptyField()
+        {
+            Assert.AreEqual(job1.ToString().Substring(1, job1.ToString().Length - 2), $"ID: {job1.Id}\nName: Data not available\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available");
+        }
     }
 }
 
