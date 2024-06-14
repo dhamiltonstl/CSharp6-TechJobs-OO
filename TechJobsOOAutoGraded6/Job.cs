@@ -52,14 +52,14 @@ namespace TechJobsOOAutoGraded6
             // string[] labels = {"Name: ", "Employer: ", "Location: ", "Position Type: ", "Core Competency: "};
             StringBuilder newStr = new StringBuilder();
 
-            newStr.Append("\n");
+            newStr.Append(Environment.NewLine);
             newStr.Append($"ID: {this.Id}\n");
             newStr.Append("Name: " + (Name ?? emptyField) + "\n");
             newStr.Append("Employer: " + (EmployerName != null && EmployerName.Value != "" ? EmployerName.Value : emptyField) + "\n");
             newStr.Append("Location: " + (EmployerLocation != null && EmployerLocation.Value != "" ? EmployerLocation.Value : emptyField) + "\n");
             newStr.Append("Position Type: " + (JobType != null && JobType.Value != "" ? JobType.Value : emptyField) + "\n");
-            newStr.Append("Core Competency: " + (JobCoreCompetency != null && JobCoreCompetency.Value != "" ? JobCoreCompetency.Value : emptyField) + "\n");            
-
+            newStr.Append("Core Competency: " + (JobCoreCompetency != null && JobCoreCompetency.Value != "" ? JobCoreCompetency.Value : emptyField));            
+            newStr.Append(Environment.NewLine);
             return newStr.ToString();
         }
     }

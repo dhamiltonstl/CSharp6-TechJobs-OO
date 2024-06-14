@@ -7,13 +7,13 @@ namespace TechJobsOOAutoGraded6
         // private static int nextId = 1;
         public string Value { get; set; }
 
-        public Employer()
-        {
-            // Id = nextId;
-            // nextId++;
-        }
+        // public Employer()
+        // {
+        //     // Id = nextId;
+        //     // nextId++;
+        // }
 
-        public Employer(string value) : this()
+        public Employer(string value) : base()
         {
             Value = value;
         }

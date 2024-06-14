@@ -7,13 +7,13 @@ namespace TechJobsOOAutoGraded6
         // private static int nextId = 1;
         public string Value { get; set; }
 
-        public PositionType()
-        {
-            // Id = nextId;
-            // nextId++;
-        }
+        // public PositionType()
+        // {
+        //     // Id = nextId;
+        //     // nextId++;
+        // }
 
-        public PositionType(string value) : this()
+        public PositionType(string value) : base()
         {
             Value = value;
         }
