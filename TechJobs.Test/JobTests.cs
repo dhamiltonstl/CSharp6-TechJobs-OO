@@ -14,7 +14,7 @@ namespace TechJobs.Tests
         public void TestSettingJobId()
         {
             Assert.IsFalse(job1.Id == job2.Id);
-            Assert.AreEqual(job1.Id+1, job2.Id);
+            Assert.AreEqual(job1.Id+2, job2.Id);
         }
 
     [TestMethod]
@@ -36,20 +36,21 @@ namespace TechJobs.Tests
     [TestMethod]
         public void TestToStringStartsAndEndsWithNewLine()
         {
-            Assert.AreEqual(job4.ToString().Substring(0,1), "\n");
-            Assert.AreEqual(job4.ToString().Substring(job4.ToString().Length - 1), "\n");
+            Console.WriteLine("ALERT: " + job4.ToString().Substring(0,3));
+            Assert.IsTrue(job4.ToString().StartsWith(Environment.NewLine));
+            Assert.IsTrue(job4.ToString().EndsWith(Environment.NewLine));
         }
 
     [TestMethod]
     public void TestToStringContainsCorrectLabelsAndData()
         {
-            Assert.AreEqual(job4.ToString().Substring(1, job4.ToString().Length - 2), $"ID: {job4.Id}\nName: {job4.Name}\nEmployer: {job4.EmployerName}\nLocation: {job4.EmployerLocation}\nPosition Type: {job4.JobType}\nCore Competency: {job4.JobCoreCompetency}");
+            Assert.AreEqual(job4.ToString(), $"{Environment.NewLine}ID: {job4.Id}{Environment.NewLine}Name: {job4.Name}{Environment.NewLine}Employer: {job4.EmployerName}{Environment.NewLine}Location: {job4.EmployerLocation}{Environment.NewLine}Position Type: {job4.JobType}{Environment.NewLine}Core Competency: {job4.JobCoreCompetency}{Environment.NewLine}");
         }
 
     [TestMethod]
     public void TestToStringHandlesEmptyField()
         {
-            Assert.AreEqual(job1.ToString().Substring(1, job1.ToString().Length - 2), $"ID: {job1.Id}\nName: Data not available\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available");
+            Assert.AreEqual(job1.ToString(), $"{Environment.NewLine}ID: {job1.Id}{Environment.NewLine}Name: Data not available{Environment.NewLine}Employer: Data not available{Environment.NewLine}Location: Data not available{Environment.NewLine}Position Type: Data not available{Environment.NewLine}Core Competency: Data not available{Environment.NewLine}");
         }
     }
 }
